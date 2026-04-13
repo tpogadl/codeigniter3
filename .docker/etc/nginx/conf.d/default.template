@@ -3,7 +3,7 @@
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    server_name ${NGINX_HOST};
+    server_name codeigniter.local;
 
     root /var/www/html;
     index index.php index.html;
@@ -37,7 +37,7 @@ server {
 }
 
 # server {
-#     server_name ${NGINX_HOST};
+#     server_name codeigniter.local;
 
 #     listen 443 ssl;
 #     fastcgi_param HTTPS on;
