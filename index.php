@@ -36,6 +36,9 @@
  * @filesource
  */
 
+// load the autoloader
+require_once './vendor/autoload.php';
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
