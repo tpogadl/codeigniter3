@@ -34,6 +34,16 @@ services:
       - "./:/var/www/html"
     extra_hosts:
       - host.docker.internal:host-gateway
+  php85:
+    build:
+      context: ./
+      dockerfile: ./.docker/Dockerfile_php85
+    restart: no
+    volumes:
+      - "./.docker/etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+      - "./:/var/www/html"
+    extra_hosts:
+      - host.docker.internal:host-gateway
   composer:
     image: "composer"
     volumes:
