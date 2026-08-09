@@ -73,7 +73,6 @@ class CI_Exceptions {
 		E_USER_ERROR		=>	'User Error',
 		E_USER_WARNING		=>	'User Warning',
 		E_USER_NOTICE		=>	'User Notice',
-		E_STRICT		=>	'Runtime Notice'
 	);
 
 	/**
@@ -83,6 +82,9 @@ class CI_Exceptions {
 	 */
 	public function __construct()
 	{
+		if (PHP_VERSION_ID < 80400) {
+			$this->levels[E_STRICT] = 'Runtime Notice';
+		}
 		$this->ob_level = ob_get_level();
 		// Note: Do not log messages from this constructor.
 	}
