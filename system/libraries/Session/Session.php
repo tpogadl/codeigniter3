@@ -415,6 +415,11 @@ class CI_Session {
 			$bits_per_character = (int) ini_get('session.hash_bits_per_character');
 			$sid_length         = (int) ceil($bits / $bits_per_character);
 		}
+		elseif (PHP_VERSION_ID > 80400) {
+			// manually changing session.sid_length is deprecated, nothing to do here
+			$bits_per_character = (int) ini_get('session.sid_bits_per_character');
+			$sid_length         = (int) ini_get('session.sid_length');
+		}
 		else
 		{
 			$bits_per_character = (int) ini_get('session.sid_bits_per_character');
