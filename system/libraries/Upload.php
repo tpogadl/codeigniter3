@@ -1227,21 +1227,17 @@ class CI_Upload {
 		 */
 		if (function_exists('finfo_file'))
 		{
-			$finfo = @finfo_open(FILEINFO_MIME);
-			if ($finfo !== FALSE) // It is possible that a FALSE value is returned, if there is no magic MIME database file found on the system
-			{
-				$mime = @finfo_file($finfo, $file['tmp_name']);
-				finfo_close($finfo);
+			$finfo = new finfo(FILEINFO_MIME);
+			$mime = $finfo->file( $file['tmp_name']);
 
-				/* According to the comments section of the PHP manual page,
-				 * it is possible that this function returns an empty string
-				 * for some files (e.g. if they don't exist in the magic MIME database)
-				 */
-				if (is_string($mime) && preg_match($regexp, $mime, $matches))
-				{
-					$this->file_type = $matches[1];
-					return;
-				}
+			/* According to the comments section of the PHP manual page,
+			 * it is possible that this function returns an empty string
+			 * for some files (e.g. if they don't exist in the magic MIME database)
+			 */
+			if (is_string($mime) && preg_match($regexp, $mime, $matches))
+			{
+				$this->file_type = $matches[1];
+				return;
 			}
 		}
 

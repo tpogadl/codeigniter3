@@ -840,8 +840,8 @@ class CI_Image_lib {
 		}
 
 		// Kill the file handles
-		imagedestroy($dst_img);
-		imagedestroy($src_img);
+		# imagedestroy($dst_img); # removed, as it is deprecated in php 8.5
+		# imagedestroy($src_img); # removed, as it is deprecated in php 8.5
 
 		if ($this->dynamic_output !== TRUE)
 		{
@@ -1045,8 +1045,8 @@ class CI_Image_lib {
 		}
 
 		// Kill the file handles
-		imagedestroy($dst_img);
-		imagedestroy($src_img);
+		# imagedestroy($dst_img); # removed, as it is deprecated in php 8.5
+		# imagedestroy($src_img); # removed, as it is deprecated in php 8.5
 
 		chmod($this->full_dst_path, $this->file_permissions);
 
@@ -1124,7 +1124,7 @@ class CI_Image_lib {
 		}
 
 		// Kill the file handles
-		imagedestroy($src_img);
+		# imagedestroy($src_img); # removed, as it is deprecated in php 8.5
 
 		chmod($this->full_dst_path, $this->file_permissions);
 
@@ -1254,8 +1254,8 @@ class CI_Image_lib {
 			return FALSE;
 		}
 
-		imagedestroy($src_img);
-		imagedestroy($wm_img);
+		# imagedestroy($src_img); # removed, as it is deprecated in php 8.5
+		# imagedestroy($wm_img); # removed, as it is deprecated in php 8.5
 
 		return TRUE;
 	}
@@ -1425,7 +1425,7 @@ class CI_Image_lib {
 			$this->image_save_gd($src_img);
 		}
 
-		imagedestroy($src_img);
+		# imagedestroy($src_img); # removed, as it is deprecated in php 8.5
 
 		return TRUE;
 	}
